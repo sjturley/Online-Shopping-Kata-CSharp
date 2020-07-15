@@ -1,0 +1,6 @@
+dotnet tool install -g dotnet-reportgenerator-globaltool
+
+dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput="./TestResults/"
+
+reportgenerator "-reports:tests/OnlineShopping.Test/TestResults/coverage.cobertura.xml" "-targetdir:tests/OnlineShopping.Test/TestResults/html" -reporttypes:JsonSummary
+
